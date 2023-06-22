@@ -4,6 +4,8 @@ import cv2
 #import numpy as np
 #import selenium
 #cv2.namedWindow('Mid_test',cv2.WINDOW_NORMAL)
+
+#                       WHERE I STORE MY IMAGES
 image = cv2.imread('/home/pi/Pictures/me.full.png',cv2.IMREAD_UNCHANGED)
 #print('HEIGHT:',image.shape[0],' ',"WIDTH:",image.shape[1])
 height = image.shape[0]
@@ -27,6 +29,8 @@ for i in range(0,125):
 	cv2.line(image, (width,hh-rh), (hw,hh+rh), (c1,c2,c3), size)
 	cv2.line(image, (width,hh+rh), (hw,hh-rh), (c1,c2,c3), size)
 	#print(f'line{i}')
+#			WHERE I STORE MY IMAGES
+#			This photo is of me cut out with gimp
 foreground= Image.open('/home/pi/Pictures/me.gone_alpha.png')
 image_test=cv2.resize(image,(960,540))
 #cv2.imshow('Mid_test',image_test)
@@ -38,5 +42,6 @@ final2=Image.alpha_composite(final2,image.convert('RGBA'))
 #final2.show()
 final2=Image.alpha_composite(final2,foreground)
 #final2.show()
+#			Final Product
 final2.save('/home/pi/Pictures/me.linkedin.png')
 cv2.destroyAllWindows()

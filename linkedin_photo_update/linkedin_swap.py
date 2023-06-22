@@ -8,8 +8,10 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 600))
 display.start()
 chrome_options = Options()
+#Had to login here then I use the loggedin user profile 
+#this enabled me to get pass selenium blocking  attempts
 chrome_options.add_argument("--user-data-dir=/home/pi/.config/chromium")
-#chrome_options.add_argument("--headless")
+#chrome_options.add_argument("--headless") #0 visibility display is better
 #'me.linkedin.png'
 #dr = webdriver.Chrome(service=Service(ChromeDriverManager().install(),options=chrome_options))
 #dr=webdriver.Chrome('/usr/lib/chromium/chromium',options=chrome_options)
